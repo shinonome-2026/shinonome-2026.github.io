@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinonome Nihongo Gakkou | 東雲日本語学校</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --gold1:#fff3b0;
+  --gold2:#f7e48b;
+  --gold3:#e6c75a;
+  --gold4:#d4af37;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif; background:#0a0a0a; color:#e8e8e8; line-height:1.7;}
+
+/* BACKGROUND */
+.japan-bg{
+  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+              url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e");
+  background-size:cover; background-position:center;
+  animation:japanSlide 90s ease-in-out infinite alternate;
+}
+@keyframes japanSlide{
+  0%{background-position:center;}
+  100%{background-position:60% 40%;}
+}
+
+/* HERO */
+.hero{min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px; position:relative; z-index:1;}
+.hero h1{
+  letter-spacing:1px;
+  background:linear-gradient(120deg,var(--gold1),var(--gold2),var(--gold3),var(--gold4));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  text-shadow:0 2px 4px rgba(0,0,0,0.5),0 6px 18px rgba(0,0,0,0.5);
+}
+.hero h2{font-size:34px;margin:5px 0;}
+.hero h3{font-size:34px;margin:5px 0;color:#d4af37;}
+
+.btn {
+  position: relative;
+  z-index: 10000;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-in-out;
+  
+  /* TAMBAHAN UNTUK IPHONE/MOBILE */
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Pastikan area CTA tidak terhalang */
+.cta {
+  position: relative;
+  z-index: 999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn:active { transform: translateY(2px); }
+
+/* Efek klik yang lebih responsif */
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: none !important;
+}
+
+/* Tombol Utama (Pendaftaran, Portofolio, Maps) */
+/* BTN DAFTAR / GOLD */
+.btn-gold { 
+  background: linear-gradient(180deg, var(--gold2), var(--gold4)); 
+  color: #000; 
+  box-shadow: 0 4px 0 #8c6a1f, 0 10px 25px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-gold:hover {
+  filter: brightness(1.1);
+}
+
+/* BTN DAFTAR & PORTOFOLIO */
+.btn-daftar{
+  background:linear-gradient(180deg,var(--gold2),var(--gold4));
+  color:#000;
+  box-shadow:0 4px 0 #8c6a1f,0 10px 25px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.2);
+}
+
+/* WA, IG, EMAIL */
+.btn-wa {
+  background: linear-gradient(145deg,#25D366,#1ebe5d);
+  color: #fff;
+  box-shadow: 0 6px 0 #128C7E, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-ig {
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+  color: #fff;
+  box-shadow: 0 6px 0 #8a2be2, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn-email {
+  background: linear-gradient(135deg,#0072ff,#00c6ff);
+  color: #fff;
+  box-shadow: 0 6px 0 #005bbb, 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.btn i { margin-right: 8px; font-size: 18px; }
+
+/* LOGO LPK */
+.logo-lpk{display:flex; justify-content:center; margin:25px 0;}
+.logo-lpk img{width:220px; height:auto; object-fit:contain; box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+
+/* SECTIONS */
+section{padding:90px 10%;}
+.section-title{text-align:center; margin-bottom:50px;}
+.section-title h2{color:#d4af37; text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+.card{background:#141414; padding:30px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.5); position:relative; z-index:1;}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;}
+.teacher{text-align:center;}
+.teacher-photo{width:260px;margin:auto;}
+.teacher-photo img{width:100%;height:auto;object-fit:contain;border-radius:10px;}
+
+  /* KURIKULUM */
+  .kurikulum-menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+    margin-bottom: 25px;
+  }
+
+  .kurikulum-btn {
+    padding: 12px 18px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #aaa;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .kurikulum-btn.active {
+    background: #d4af37;
+    color: #000;
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    font-weight: 600;
+  }
+  
+  .kurikulum-content { display: none; }
+  .kurikulum-content.active { display: block; }
+
+/* FOOTER */
+footer{background:#000;padding:60px 20px;text-align:center;}
+footer h3{color:#d4af37;}
+.footer-logo{display:flex;justify-content:center;margin-bottom:15px;}
+.footer-logo img{width:70px;height:70px;object-fit:contain;border-radius:50%;box-shadow:0 4px 15px rgba(0,0,0,0.4);}
+copyright{margin-top:20px;font-size:14px;color:#aaa;letter-spacing:0.5px;}
+
+/* SCROLL ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:all 1s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+/* Penyesuaian Responsif untuk Mobile */
+  @media screen and (max-width: 600px) {
+    section {
+      padding: 60px 5%;
+    }
+    .hero h1 {
+      font-size: 28px;
+    }
+    .hero h2, .hero h3 {
+      font-size: 22px;
+    }
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .btn {
+      padding: 12px 20px;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+    }
+    .cta {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+</style>
+</head>
+<body>
+<div class="japan-bg"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Selamat Datang di</h1>
+    <h2 style="margin-top:10px; font-size:28px; color:#f7e48b;">
+      <span lang="ja">ようこそ</span>
+    </h2>
+    
+    <div class="logo-lpk">
+      <img src="logo.png" alt="Logo Shinonome Nihongo Gakkou">
+    </div>
+
+    <h2>Shinonome Nihongo Gakkou</h2>
+    <h3>|<span lang="ja">東雲日本語学校</span>|</h3>
+
+    <div class="cta">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSefe8ZeJPctzlECixyOX-V8yxv8idphfTv_Z4Rhm_98Fy8Ybw/viewform?pli=1" class="btn btn-gold">Pendaftaran Siswa | <span lang="ja">入学登録</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-title"><h2>Tentang Kami</h2><h3><span lang="ja">会社概要</span></h3></div>
+  <div class="card">
+    <p> Shinonome Nihongo Gakkou merupakan lembaga pendidikan bahasa Jepang yang berfokus pada penguasaan kompetensi bahasa, komunikasi profesional, serta kesiapan kerja menuju Jepang. Pembelajaran dilakukan secara sistematis dan aplikatif sehingga siswa mampu menggunakan bahasa Jepang secara nyata. </p>
+    <p style="color:#d4af37; margin-top:10px;">
+      <span lang="ja">東雲日本語学校は、日本語の能力習得、プロフェッショナルなコミュニケーション、そして日本での就職準備に重点を置いた教育機関です。学習は体系的かつ実践的に行われ、学生は実際に日本語を使えるようになります。</span>
+    </p>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section class="reveal">
+  <div class="section-title"><h2>Visi & Misi</h2><h3><span lang="ja">ビジョン・ミッション</span></h3></div>
+  <div class="grid">
+    <div class="card">
+      <h3>Visi</h3><p> Menjadi lembaga pendidikan bahasa Jepang yang profesional dalam mencetak sumber daya manusia yang kompeten dan siap berkarir di Jepang.</p>
+      <h3 style="color:#d4af37; margin-top:10px;"><span lang="ja">ビジョン</span></h3>
+      <p style="color:#d4af37; margin-top:10px;"><span lang="ja">日本でのキャリアに即戦力として活躍できる、有能な人材を育成する、プロフェッショナルな日本語教育機関を目指します。</span></p>
+    </div>
+<div class="card"><h3>Misi</h3><ul><li>Pendidikan bahasa Jepang berbasis kompetensi</li><li>Persiapan JLPT dan JFT Basic</li><li>Bimbingan program kerja Jepang</li><li>Membangun karakter disiplin</li></ul><h3 style="color:#d4af37; margin-top:10px;"><span lang="ja">ミッション</span></h3><ul><li style="color:#d4af37; margin-top:10px;"><span lang="ja">能力に基づく日本語教育</span></li><li style="color:#d4af37; margin-top:10px;"><span lang="ja">JLPTおよびJFTベーシック対策</span></li><li style="color:#d4af37; margin-top:10px;"><span lang="ja">日本就職プログラム指導</span></li><li style="color:#d4af37; margin-top:10px;"><span lang="ja">規律ある人格形成</span></li></ul></div>
+</div>
+</section>
+
+<!-- PROFIL PENGAJAR -->
+<section class="reveal">
+<div class="section-title"><h2>Profil Pengajar</h2><h3><span lang="ja">教師プロフィール</span></h3></div>
+<div class="teacher">
+<div class="teacher-photo"><img src="frido.jpg"></div>
+<h3 style="margin-top:20px;">Frido Setyo Panjongko</h3>
+<p style="max-width:600px;margin:auto;margin-top:10px;">Pengajar bahasa Jepang dengan pengalaman bekerja di Jepang serta berpengalaman sebagai pengajar dan penerjemah bahasa Jepang. Pendekatan pembelajaran berfokus pada komunikasi aktif serta kesiapan nyata menghadapi lingkungan kerja di Jepang.</p>
+<h3 style="color:#d4af37;margin-top:20px;"><span lang="ja">フリド・スティヨ・パンジョンコ</span></h3>
+<p style="color:#d4af37;max-width:600px;margin:auto;margin-top:10px;"><span lang="ja">日本での勤務経験を持ち、日本語教師および翻訳者としての豊富な経験を有する日本語講師です。学習指導は、実践的なコミュニケーション能力の習得と、日本での職場環境に即した対応力の向上を重視しています。</span></p>
+</div>
+</section>
+
+<!-- KURIKULUM -->
+<section class="reveal">
+<div class="section-title"><h2>Kurikulum Pembelajaran</h2><h3><span lang="ja">教育課程</span></h3></div>
+<div class="kurikulum-menu">
+  <button class="kurikulum-btn active" onclick="openKurikulum('n5', this)">Level Dasar | <span lang="ja">入門級</span></button>
+  <button class="kurikulum-btn" onclick="openKurikulum('n4', this)">Level Menengah | <span lang="ja">初級</span></button>
+  <button class="kurikulum-btn" onclick="openKurikulum('ssw', this)">Program Kerja Jepang | <span lang="ja">日本就労計画</span></button>
+</div>
+<div id="n5" class="kurikulum-content active"><div class="grid"><div class="card">Hiragana dan Katakana | <span lang="ja">平仮名 (ひらがな)・片仮名 (カタカナ)</span></div><div class="card">Kosakata dasar | <span lang="ja">基礎語彙</span></div><div class="card">Tata bahasa dasar | <span lang="ja">基礎文法</span></div><div class="card">Percakapan sehari-hari | <span lang="ja">日常会話</span></div></div></div>
+<div id="n4" class="kurikulum-content"><div class="grid"><div class="card">Tata bahasa menengah | <span lang="ja">初級・中級文法</span></div><div class="card">Kosakata JLPT N4 | <span lang="ja">JLPT N4の語彙</span></div><div class="card">Latihan membaca | <span lang="ja">読解演習</span></div><div class="card">Simulasi JLPT | <span lang="ja">JLPT模擬試験</span></div></div></div>
+<div id="ssw" class="kurikulum-content"><div class="grid"><div class="card">Bahasa Jepang lingkungan kerja | <span lang="ja">職場日本語</span></div><div class="card">Etika kerja Jepang | <span lang="ja">日本の職業倫理</span></div><div class="card">Simulasi wawancara | <span lang="ja">模擬面接</span></div><div class="card">Persiapan JFT Basic | <span lang="ja">JFTベーシック対策</span></div></div></div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section class="reveal">
+  <div class="section-title"><h2>Portofolio</h2><h3><span lang="ja">業績集</span></h3></div>
+  <div class="card" style="text-align: center;">
+    <p>Lihat profil lengkap dan pengalaman pengajar.</p><p style="color:#d4af37; margin-top:10px;"><span lang="ja">講師のプロフィールと経歴を詳しく見て下さい。</span></p>
+    <div class="cta"><a href="https://fsty30-cpu.github.io/" class="btn btn-gold">Lihat Portofolio | <span lang="ja">見よう！</span></a></div>
+  </div>
+</section>
+
+<!-- ALAMAT -->
+<section class="reveal">
+<div class="section-title"><h2>Alamat</h2><h3><span lang="ja">所在地</span></h3></div>
+<div class="card">
+<p>Perum. Candimulyo Asri F29 005/011 Candimulyo Kec. Kedu Kab. Temanggung Jawa Tengah 56252</p><p style="color:#d4af37; margin-top:10px;"><span lang="ja">〒56252 中部ジャワテマングン摂政ケデゥ地区チャンディムルヨ住宅団地F29号5番地の11</span></p>
+<br>
+<div class="cta">
+  <a href="https://maps.app.goo.gl/YpACz82cXd9ResEv7?g_st=ic" target="_blank" class="btn btn-daftar">Lihat Lokasi di Google Maps | <span lang="ja">Googleマップで所在地を確認</span></a>
+</div>
+</div>
+</section>
+
+<!-- PROMOSI & PENYEMANGAT -->
+<section class="reveal">
+  <div class="section-title">
+    <h2>Bergabunglah Bersama Kami!</h2><h3><span lang="ja">ぜひ私たちと一緒にご参加ください！</span></h3>
+  </div>
+  <div class="card" style="text-align:center;">
+    <p style="font-size:18px; margin-bottom:15px;">
+      Raih kemampuan bahasa Jepang yang siap pakai dan wujudkan karir impianmu di Jepang.
+    </p>
+    <p style="font-size:16px; color:#d4af37; margin-bottom:30px;">
+      <span lang="ja">日本語を実践的に身につけて、夢の日本でのキャリアを実現しましょう。</span>
+    </p>
+
+    <p style="font-size:18px; margin-bottom:15px;">
+      Belajar dengan pengajar berpengalaman langsung dari Jepang, metode efektif dan aplikatif.
+    </p>
+    <p style="font-size:16px; color:#d4af37; margin-bottom:30px;">
+      <span lang="ja">日本での経験豊富な講師と一緒に、効果的で実践的な学習を体験しましょう。</span>
+    </p>
+
+    <p style="font-size:18px; margin-bottom:15px;">
+      Daftar sekarang dan jadilah bagian dari komunitas pembelajar yang siap sukses di Jepang!
+    </p>
+    <p style="font-size:16px; color:#d4af37;">
+      <span lang="ja">今すぐ登録して、日本で成功する学習コミュニティの一員になりましょう！</span>
+    </p>
+  </div>
+
+<div class="cta">
+  <div class="section-title"><h2>Hubungi Kami</h2><h3><span lang="ja">ご連絡はこちら!</span></h3></div>
+  
+  <a href="https://wa.me/6285190673003" target="_blank" class="btn btn-wa">
+    <i class="fa-brands fa-whatsapp"></i>WhatsApp
+  </a>
+
+  <a href="https://instagram.com/frido.sp_" target="_blank" class="btn btn-ig">
+    <i class="fa-brands fa-instagram"></i>Instagram
+  </a>
+
+<a href="mailto:fsty30@gmail.com" class="btn btn-email">
+  <i class="fa-regular fa-envelope"></i>Email
+</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-logo"><img src="logo.png" alt="Logo Shinonome Nihongo Gakkou"></div>
+<h3>Shinonome Nihongo Gakkou</h3>
+<p>|<span lang="ja">東雲日本語学校</span>|</p>
+<p class="copyright">© 2026 Shinonome Nihongo Gakkou. All Rights Reserved.</p>
+</footer>
+
+<script>
+/* FUNGSI KURIKULUM */
+function openKurikulum(kelas, el){
+  // 1. Sembunyikan semua konten
+  document.querySelectorAll(".kurikulum-content").forEach(c => {
+    c.classList.remove("active");
+  });
+  
+  // 2. Hapus status aktif dari semua tombol
+  document.querySelectorAll(".kurikulum-btn").forEach(b => {
+    b.classList.remove("active");
+  });
+  
+  // 3. Munculkan konten yang dipilih berdasarkan ID
+  document.getElementById(kelas).classList.add("active");
+  
+  // 4. Beri status aktif pada tombol yang diklik
+  el.classList.add("active");
+}
+
+/* FUNGSI SCROLL ANIMATION (Biarkan tetap ada) */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("active");
+  });
+});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
